@@ -1,0 +1,39 @@
+.planning {
+  display: flex;
+  align-items: center;
+  height: 200px;
+}
+.planning.chart {
+  flex: 9;
+  height: 100%;
+}
+.planning-list {
+  width: 100%;
+  height: 200px;
+}
+.planning.day {
+  flex: 1;
+  min-width: 80px;
+}
+
+input.time {
+  height: 400px;
+  margin-top: -200px;
+  width: 100%;
+  position: inherit;
+  -webkit-appearance: none;
+  background: transparent;
+  color: transparent;
+}
+input.time:focus {
+  border: none;
+  outline: none;
+}
+
+input.time::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background:blue;
+  height: 100%;
+  width: 2px;
+  opacity: 0.5;
+}

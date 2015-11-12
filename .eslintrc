@@ -1,0 +1,14 @@
+parser: babel-eslint
+rules:
+    indent: [2, 2]
+    quotes: [2, "single"]
+    brace-style: [2, "stroustrup"]
+    camelcase: [2]
+    no-dupe-args: [2]
+    no-dupe-keys: [2]
+    no-duplicate-case: [2]
+    dot-notation: [2]
+    dot-location: [2, "object"]
+    semi: [2, "always"]
+    space-in-parens: [2, "never"]
+    prefer-arrow-callback: [2]
