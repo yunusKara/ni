@@ -1,12 +1,8 @@
-# ni #
+# ni, _craft your own Nest-like learning thermostat_ #
 
-Craft your own Nest™ Demo WebSite
+> Read our [blog post](http://www.craft.ai/blog/NEST-like/) to learn more about this demo!
 
-## Testing ##
-
-Go to http://craft.ai/ni to see the demo running
-
-## Development ##
+## Run locally ##
 
 Install [NodeJS](https://nodejs.org/en/download/).  
 
