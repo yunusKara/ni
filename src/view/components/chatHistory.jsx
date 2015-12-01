@@ -2,7 +2,6 @@ import React from 'react';
 import _ from 'underscore';
 var Reflux = require('reflux');
 import chatHistoryStore from './chatHistoryStore.js';
-import * as Runtime from '../../runtime.js';
 
 var ChatMessage = React.createClass({
   render: function() {
