@@ -4,7 +4,7 @@
   },
   {
     "homeUrl": "http://www.craft.ai/ni/",
-    "description": "",
+    "description": "Sample demo that control virtual thermometer and thermostat and learning schedule from user inputs",
     "actionLibraries": {
       "google": false
     }
