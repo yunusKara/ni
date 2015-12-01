@@ -5,13 +5,13 @@ var format = require('string-format');
 
 var util = require('util');
 
-var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday','Saturday']
+var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday','Saturday'];
 
 export function MapOfTime(globalTime) {
   var workDay = globalTime.getDay();
   var hours = globalTime.getHours();
   var minutes = globalTime.getMinutes();
-  if( workDay == 0 || workDay == 6 )
+  if( workDay === 0 || workDay === 6 )
     workDay = false;
   else
     workDay = true;
@@ -26,7 +26,7 @@ export function MapOfTime(globalTime) {
     year : globalTime.getFullYear(),
     text : ('0' + (hours)).slice(-2)+':'+('0' + (minutes)).slice(-2),
     fullTime : globalTime.getTime(),
-   }
+   };
   return res;
 }
 
@@ -58,11 +58,11 @@ export function registerActions(instance) {
         })
         .then(()=>{
           devices.waitBT();
-        })
+        });
       };
       let checkTime = function() {
         if( ActionsStore.getAutomaticTime() === false ) {
-          setTimeout( function(){ checkTime() }, 0);
+          setTimeout( function(){ checkTime(); }, 0);
           return;
         }
         var globalTime = ActionsStore.getTime();
@@ -77,8 +77,8 @@ export function registerActions(instance) {
         else if( input.time.year != globalTime.getFullYear() )
           timeHasChanged( );
         else
-          setTimeout( function(){ checkTime() }, 0);
-      }
+          setTimeout( function(){ checkTime(); }, 0);
+      };
       checkTime();
     }))
   .then(() => instance.registerAction(
@@ -90,23 +90,20 @@ export function registerActions(instance) {
       var tomorrow = new Date( now.getTime() + 24*60*60*1000 ); // add 1 day
       var IsNowWorkDay = input.time.isWorkDay;
       var tomorrowDay = tomorrow.getDay();
-      var IstomorrowWorkDay = ( workDay == 0 || workDay == 6 );
+      var IstomorrowWorkDay = ( workDay === 0 || workDay === 6 );
 
       var planToday = IsNowWorkDay ? workDay : weekEnd;
       var planTomorrow = IstomorrowWorkDay ? workDay: weekEnd;
       // is there an event in the 'today' planning ?
       var next = -1;
-      for( var idx  = 0; idx < planToday.length; ++idx )
-      {
-        if( planToday[idx].time >= (input.time.timeOfDay-20) )
-        {
+      for( var idx  = 0; idx < planToday.length; ++idx ) {
+        if( planToday[idx].time >= (input.time.timeOfDay-20) ) {
           next = idx;
           break;
         }
       }
       // not in today planning
-      if( next == -1 )
-      {
+      if( next == -1 ) {
         // so it is the first event of tomorrow
         var h = Math.floor(planTomorrow[0].time/60);
         var m = Math.floor(planTomorrow[0].time%60);
@@ -116,11 +113,10 @@ export function registerActions(instance) {
         timeEvent.setMinutes(m);
         success({event:{time:timeEvent.getTime(), value:planTomorrow[0].value, hour:h, minute:m, text:text}});
       }
-      else
-      {
+      else {
         var h = Math.floor(planToday[next].time/60);
         var m = Math.floor(planToday[next].time%60);
-        var text = ('0' + (h)).slice(-2)+':'+('0' + (m)).slice(-2)
+        var text = ('0' + (h)).slice(-2)+':'+('0' + (m)).slice(-2);
         var timeEvent = now;
         timeEvent.setHours(h);
         timeEvent.setMinutes(m);
@@ -155,37 +151,28 @@ export function registerActions(instance) {
       var plan = input.planning;
       var selected = -1;
       // find if we are 30 min away from an entry
-      for( var idx  = 0; idx < plan.length; ++idx )
-      {
-        if( Math.abs( plan[idx].time-input.time ) <= 30 )
-        {
-          selected = idx;
+      for( var idx  = 0; idx < plan.length; ++idx ) {
+        if( Math.abs( plan[idx].time-input.time ) <= 30 ) {
+          selected = idx; 
           break;
         }
       }
       // not closed to one, add it
-      if( selected == -1 )
-      {
+      if( selected == -1 ) {
         plan.push( {time:input.time,value:input.value} );
       }
-      else
-      {
+      else {
         // change the planning
         plan[selected] = { time:input.time, value:input.value };
       }
-
       plan.sort( function(a,b) { return a.time - b.time; } );
       // cleanup planning (remove the last of 2 consecutings same values )
-      for( var idx  = 1; idx < plan.length; ++idx )
-      {
-        if( plan[idx].value ==  plan[idx-1].value )
-        {
+      for( idx  = 1; idx < plan.length; ++idx ) {
+        if( plan[idx].value ==  plan[idx-1].value ) {
           plan.splice( idx, 1 );
           break;
         }
-
       }
-
       success({planning: plan});
     }))
   .then(() => instance.registerAction(

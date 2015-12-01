@@ -123,10 +123,6 @@ export default React.createClass({
         simID: instance.id
       });
 
-      window.onbeforeunload = () => {
-        instance.destroy();
-      }
-
       return registerActions(instance);
     })
     .then(() => {
