@@ -1,5 +1,5 @@
-export const SH_APP_SECRET = '1KTievL2YEk4qhFqkHw7T4I43anmIextQf9s9QQP';
-export const SH_APP_ID = 'WCS5dodS3rjrCFS6T3VT';
+export const SH_APP_SECRET = 'R5o5M73J1Yqytbyrv8uZILNJ4vzRECGZtWDyqnpX';
+export const SH_APP_ID = 'biGhDVa2n8gb3Ip38mOC';
 
 export const SH_USER = 'craft-ai';
 export const SH_PROJECT = 'ni';
