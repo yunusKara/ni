@@ -8,7 +8,94 @@
       "label": ""
     },
     "properties": {},
-    "children": [],
+    "children": [
+      {
+        "activated": true,
+        "metadata": {
+          "label": ""
+        },
+        "properties": {},
+        "children": [
+          {
+            "activated": true,
+            "metadata": {
+              "label": "Question 1"
+            },
+            "properties": {
+              "name": "ask",
+              "inputParams": [
+                {
+                  "key": "question",
+                  "type": "string",
+                  "value": "Votre radiateur est il ouvert à fond ?"
+                }
+              ],
+              "outputParams": []
+            },
+            "children": [],
+            "id": "1db082ea-2698-46d7-9be7-0ebbb0066895",
+            "type": "action"
+          },
+          {
+            "activated": true,
+            "metadata": {
+              "label": "Réponse Q1"
+            },
+            "properties": {
+              "op1": {
+                "type": "entityKnowledge",
+                "value": "answer_1"
+              },
+              "op2": {
+                "type": "boolean",
+                "value": "true"
+              },
+              "op": "=="
+            },
+            "children": [
+              {
+                "activated": true,
+                "metadata": {
+                  "label": ""
+                },
+                "properties": {
+                  "name": "",
+                  "inputParams": [],
+                  "outputParams": []
+                },
+                "children": [],
+                "id": "04c982da-2b81-438b-822e-264d4f867973",
+                "type": "action"
+              }
+            ],
+            "id": "7b2f40aa-bd51-423e-96e1-b7cbdc30d029",
+            "type": "condition"
+          },
+          {
+            "activated": true,
+            "metadata": {
+              "label": "Info - technicien passe"
+            },
+            "properties": {
+              "name": "info",
+              "inputParams": [
+                {
+                  "key": "info",
+                  "type": "string",
+                  "value": "Un technicien va passer"
+                }
+              ],
+              "outputParams": []
+            },
+            "children": [],
+            "id": "17521485-9620-4a5c-baec-576d1d6bc981",
+            "type": "action"
+          }
+        ],
+        "id": "27c47373-10d0-44d1-bf82-0c5a6d90c8b2",
+        "type": "sequence"
+      }
+    ],
     "id": "1875067c-a0b3-445a-99b5-aff0009ebd3f"
   }
 ]
