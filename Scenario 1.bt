@@ -30,11 +30,85 @@
                   "value": "Votre radiateur est il ouvert à fond ?"
                 }
               ],
-              "outputParams": []
+              "outputParams": [
+                {
+                  "key": "response",
+                  "type": "entityKnowledge",
+                  "value": "response"
+                }
+              ]
             },
             "children": [],
             "id": "1db082ea-2698-46d7-9be7-0ebbb0066895",
             "type": "action"
+          },
+          {
+            "activated": true,
+            "metadata": {
+              "label": ""
+            },
+            "properties": {
+              "active": "false"
+            },
+            "children": [
+              {
+                "activated": true,
+                "metadata": {
+                  "label": ""
+                },
+                "properties": {
+                  "op1": {
+                    "type": "entityKnowledge",
+                    "value": "response"
+                  },
+                  "op2": {
+                    "type": "boolean",
+                    "value": "true"
+                  },
+                  "op": "=="
+                },
+                "children": [
+                  {
+                    "activated": true,
+                    "metadata": {
+                      "label": ""
+                    },
+                    "properties": {
+                      "name": "Question2",
+                      "inputParams": [],
+                      "outputParams": []
+                    },
+                    "children": [],
+                    "id": "b9ecd79b-0563-469a-8a9c-178c29b9b4d6",
+                    "type": "action"
+                  }
+                ],
+                "id": "d794b0b8-ea71-4837-8d10-0069cbad6de0",
+                "type": "condition"
+              },
+              {
+                "activated": true,
+                "metadata": {
+                  "label": "Info - technicien passe"
+                },
+                "properties": {
+                  "name": "info",
+                  "inputParams": [
+                    {
+                      "key": "info",
+                      "type": "string",
+                      "value": "Un technicien va passer"
+                    }
+                  ],
+                  "outputParams": []
+                },
+                "children": [],
+                "id": "17521485-9620-4a5c-baec-576d1d6bc981",
+                "type": "action"
+              }
+            ],
+            "id": "398401eb-3065-4d93-9f4b-c5786a86ca3e",
+            "type": "priority"
           },
           {
             "activated": true,
@@ -70,26 +144,6 @@
             ],
             "id": "7b2f40aa-bd51-423e-96e1-b7cbdc30d029",
             "type": "condition"
-          },
-          {
-            "activated": true,
-            "metadata": {
-              "label": "Info - technicien passe"
-            },
-            "properties": {
-              "name": "info",
-              "inputParams": [
-                {
-                  "key": "info",
-                  "type": "string",
-                  "value": "Un technicien va passer"
-                }
-              ],
-              "outputParams": []
-            },
-            "children": [],
-            "id": "17521485-9620-4a5c-baec-576d1d6bc981",
-            "type": "action"
           }
         ],
         "id": "27c47373-10d0-44d1-bf82-0c5a6d90c8b2",
